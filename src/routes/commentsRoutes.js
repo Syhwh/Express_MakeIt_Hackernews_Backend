@@ -2,67 +2,64 @@ const { Router } = require('express');
 const router = Router();
 
 //import the model
-const Post = require('../database/models/postSchema');
-const Commentary= require('../database/models/commentSchema');
+const Comment= require('../database/models/commentSchema');
 
 // router.get('/', (req, res) => {
 //     res.status(200).json({ response: 'ok' });
 // });
 
 
-router.get('/', async (req, res) => {
+router.get('/comments', async (req, res) => {
     try {
-        const postsResponse = await Post.find();
-        res.status(200).json(postsResponse);
+        const comment = await Comment.find();
+        res.status(200).json(comment);
     } catch (error) {
         res.status(401).json({ error })
     }
 })
 
-router.get('/posts/:id', async (req, res) => {
+router.get('/comments/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const postsResponse = await Post.findById(id);
-        res.status(200).json(postsResponse);
+        const comment = await Comment.findById(id);
+        res.status(200).json(comment);
     } catch (error) {
         res.status(401).json({ error })
     }
 })
 
 
-router.post('/posts', async (req, res) => {
-    const postData = {
+router.post('/comments', async (req, res) => {
+    const commentData = {
         title: req.body.title,
-        url: req.body.url,
-        description: req.body.description || ''
+        description: req.body.description
     };
     try {
-        const post = await Post.create(postData);
+        const post = await Comment.create(commentData);
         res.status(200).json(post);
     } catch (error) {
         res.status(401).json(error.message)
     }
 })
 
-router.patch('/posts/:id', async (req, res) => {
+router.patch('/comments/:id', async (req, res) => {
     const { id } = req.params;
-    const postData = {
+    const commentData = {
         title: req.body.title,
-        url: req.body.url,
-        description: req.body.description || ''
+        description: req.body.descriptio
     };
     try {
-        await Post.updateOne(({ _id: id }, postData));
+        await Comment.updateOne(({ _id: id }, commentData));
         res.status(200).json({ message: 'Project edited succesfully' });
     } catch (error) {
         res.status(401).json(error.message)
     }
 })
 
-router.delete('/posts/:id', async (req, res) => {
+router.delete('/comments/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        await Post.deleteOne(({ _id: id }));
+        await Comment.deleteOne(({ _id: id }));
         res.status(200).json({ message: 'Project deleted succesfully' });
     } catch (error) {
         res.status(401).json(error.message)
