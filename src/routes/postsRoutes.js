@@ -3,7 +3,7 @@ const router = Router();
 
 //import the model
 const Post = require('../database/models/postSchema');
-const Commentary= require('../database/models/commentSchema');
+const Commentary = require('../database/models/commentSchema');
 
 // router.get('/', (req, res) => {
 //     res.status(200).json({ response: 'ok' });
@@ -13,6 +13,7 @@ const Commentary= require('../database/models/commentSchema');
 router.get('/', async (req, res) => {
     try {
         const postsResponse = await Post.find();
+        console.log(postsResponse)
         res.status(200).json(postsResponse);
     } catch (error) {
         res.status(401).json({ error })

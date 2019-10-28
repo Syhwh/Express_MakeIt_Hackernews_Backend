@@ -2,19 +2,22 @@ require('dotenv').config();
 
 const express= require ('express');
 const morgan = require('morgan');
+var cors = require('cors');
 
-//Config files
+// application
+const app = express();
 
 
 //Model
 const User = require('./database/models/userSchema');
-
+// CORS middleware
+app.use(cors({
+    origin: 'http://localhost:3000'
+  }));
 //Routes
 const appRoutes = require('./routes/postsRoutes');
 const authRoutes = require('./routes/usersRoutes');
 
-// application
-const app = express();
 
 //Database
 require('./database/database');

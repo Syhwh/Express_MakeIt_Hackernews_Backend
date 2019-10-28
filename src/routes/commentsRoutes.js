@@ -2,11 +2,8 @@ const { Router } = require('express');
 const router = Router();
 
 //import the model
-const Comment= require('../database/models/commentSchema');
+const Comment = require('../database/models/commentSchema');
 
-// router.get('/', (req, res) => {
-//     res.status(200).json({ response: 'ok' });
-// });
 
 
 router.get('/comments', async (req, res) => {
