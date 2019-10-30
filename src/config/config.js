@@ -10,10 +10,9 @@ const config = {
             useCreateIndex: true
         },
     },
-    cookieSession: {
-        secret: 'secret Key',
-        name: 'pjs_uid',
-        maxAge: 3 * 60 * 1000
+    jwtConfig: {
+        secret: process.env.JWT_SECRET
+        
     },
 
 }

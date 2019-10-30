@@ -13,8 +13,8 @@ const PostSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
+  article: {
+    type: Object,
   },
   date: {
     type: Date,

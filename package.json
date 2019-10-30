@@ -24,6 +24,13 @@
     "custom-env": "^1.0.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "metascraper": "^5.7.17",
+    "metascraper-author": "^5.7.17",
+    "metascraper-date": "^5.7.17",
+    "metascraper-description": "^5.7.17",
+    "metascraper-image": "^5.7.17",
+    "metascraper-publisher": "^5.7.17",
+    "metascraper-title": "^5.7.17",
     "mongoose": "^5.7.5"
   },
   "devDependencies": {
