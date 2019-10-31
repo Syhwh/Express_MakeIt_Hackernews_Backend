@@ -30,10 +30,11 @@ router.get('/posts/:id', async (req, res) => {
 })
 
 
-router.post('/posts', async (req, res) => {
+router.post('/posts',verifyToken, async (req, res) => {
 
   try {
     const postData = {
+      user:req.userId,
       title: req.body.title,
       url: req.body.url,
       article: await metadata(req.body.url) || ''
