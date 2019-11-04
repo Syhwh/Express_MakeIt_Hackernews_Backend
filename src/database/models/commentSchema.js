@@ -20,7 +20,8 @@ const CommentSchema = mongoose.Schema({
   date: {
     type: Date,
     default: Date.now()
-  }
+  },
+  edited: false
 
 })
 module.exports = mongoose.model('Comment', CommentSchema);
